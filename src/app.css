@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: underline;
+}
+a:hover {
+  background-color: black;
+  color: white;
+}

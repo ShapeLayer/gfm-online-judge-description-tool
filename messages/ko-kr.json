@@ -1,0 +1,9 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"title": "GFM-description Converter",
+	"subtitle": "GitHub Flavored Markdown을 다른 온라인 저지 지문 포맷에 맞게 변환합니다.",
+	"gfm_textarea_placeholder": "**GFM 포맷 텍스트**",
+	"github_flavored_markdown": "GitHub Flavored Markdown",
+	"codeforces_polygon": "Codeforces Polygon",
+	"boj_stack": "BOJ Stack"
+}

@@ -1,0 +1,6 @@
+[submodule "gfmdesc/cmark-gfm"]
+	path = gfmdesc/cmark-gfm
+	url = https://github.com/github/cmark-gfm
+[submodule "gfmdesc/gfm2polygon-statement"]
+	path = gfmdesc/gfm2polygon-statement
+	url = https://github.com/shapelayer/gfm2polygon-statement

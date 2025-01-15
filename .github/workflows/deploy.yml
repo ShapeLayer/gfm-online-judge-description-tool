@@ -1,0 +1,41 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+env:
+  VITE_BASE_URL: ${{ vars.BASE_URL }}
+
+jobs:
+  bulid-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Checkout Submodules
+        run: git submodule update --init --recursive
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+      - name: Setup Emscripten
+        run: |
+          git clone https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          git pull
+          ./emsdk install latest
+          ./emsdk activate latest
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: |
+          source ./emsdk/emsdk_env.sh
+          npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

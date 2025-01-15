@@ -1,0 +1,9 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"title": "GFM-description Converter",
+	"subtitle": "Converts GitHub Flavored Markdown to online judge description formats",
+	"gfm_textarea_placeholder": "**GFM format text**",
+	"github_flavored_markdown": "GitHub Flavored Markdown",
+	"codeforces_polygon": "Codeforces Polygon",
+	"boj_stack": "BOJ Stack"
+}
