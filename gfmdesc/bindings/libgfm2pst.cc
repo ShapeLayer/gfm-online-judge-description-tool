@@ -46,11 +46,3 @@ EMSCRIPTEN_BINDINGS(LibGfmDesc) {
   function("cmark_render_boj_stack", &_cmark_render_boj_stack_impl, allow_raw_pointers());
   function("cmark_markdown_to_html", &_cmark_markdown_to_html_impl, allow_raw_pointers());
 }
-
-float lerp(float a, float b, float t) {
-  return (1 - t) * a + t * b;
-}
-
-EMSCRIPTEN_BINDINGS(my_module) {
-  function("lerp", &lerp);
-}
