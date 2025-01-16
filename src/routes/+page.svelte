@@ -10,6 +10,7 @@
   import { MarkGithub16 } from 'svelte-octicons'
   const convertingFormats = [
     { id: 'polygon', name: m.codeforces_polygon(), image: `${base}/polygon-logo.png` },
+    { id: 'html', name: m.html(), image: `${base}/html-logo.png` },
     { id: 'stack', name: m.boj_stack(), image: `${base}/stack-logo.png` }
   ]
   const voidConvertCallback = async (content: string): Promise<string> => { return '' }
@@ -29,9 +30,17 @@
         convertCallback = toPolygonStatement
         contentType = DescriptionType.polygon
         break
+      case 'html':
+        convertCallback = toHtml
+        contentType = DescriptionType.html
+        break
       case 'stack':
         convertCallback = toHtml
         contentType = DescriptionType.bojStack
+        break
+      default:
+        convertCallback = voidConvertCallback
+        contentType = DescriptionType.none
         break
     }
   }
