@@ -4,7 +4,7 @@
   import Selector from '$lib/components/Selector/Selector.svelte'
   import ClickToClipboard from '$lib/components/ClickToClipboard/ClickToClipboard.svelte';
   import ChangeLanguage from '$lib/components/i18n/ChangeLanguage.svelte'
-  import { toHtml, toPolygonStatement } from '$lib/gfmdesc/bridge'
+  import { toHtml, toBOJDesc, toPolygonStatement } from '$lib/gfmdesc/bridge'
 	import { DescriptionType } from '$lib/commons/gfmdescBridge.d'
   import * as m from '$lib/paraglide/messages.js'
   import { MarkGithub16 } from 'svelte-octicons'
@@ -35,7 +35,7 @@
         contentType = DescriptionType.html
         break
       case 'stack':
-        convertCallback = toHtml
+        convertCallback = toBOJDesc
         contentType = DescriptionType.bojStack
         break
       default:

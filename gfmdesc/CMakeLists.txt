@@ -33,6 +33,7 @@ set(HEADERS
   cmark-gfm/src/syntax_extension.h
   cmark-gfm/src/plugin.h
   gfm2polygon-statement/src/polygon.hpp
+  src/boj_stack.h
   )
 set(LIBRARY_SOURCES
   cmark-gfm/src/cmark.c
@@ -64,6 +65,7 @@ set(LIBRARY_SOURCES
   cmark-gfm/src/registry.c
   cmark-gfm/src/plugin.c
   gfm2polygon-statement/src/polygon.cpp
+  src/boj_stack.cc
   ${HEADERS}
   )
 
@@ -73,6 +75,7 @@ set(CMARK_GFM_PROJECT_NAME "cmark-gfm")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/gen)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cmark-gfm/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cmark-gfm/extensions)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gfm2polygon-statement/src)
