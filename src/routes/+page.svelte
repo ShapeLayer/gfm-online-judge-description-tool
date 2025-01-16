@@ -3,7 +3,7 @@
   import { base } from '$app/paths'
   import Selector from '$lib/components/Selector/Selector.svelte'
   import ClickToClipboard from '$lib/components/ClickToClipboard/ClickToClipboard.svelte';
-  import ChangeLanguage from '$lib/i18n/ChangeLanguage.svelte'
+  import ChangeLanguage from '$lib/components/i18n/ChangeLanguage.svelte'
   import { toHtml, toPolygonStatement } from '$lib/gfmdesc/bridge'
 	import { DescriptionType } from '$lib/commons/gfmdescBridge.d'
   import * as m from '$lib/paraglide/messages.js'
