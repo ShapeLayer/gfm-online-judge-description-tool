@@ -1,6 +1,17 @@
 {
-	"name": "gfm2polygon-statement-webui",
-	"private": true,
+	"name": "gfm-online-judge-description-tool",
+	"description": "Converts GitHub Flavored Markdown to Polygon's statement LaTeX and BOJ Stack's description DOM.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shapelayer/gfm-online-judge-description-tool.git"
+	},
+	"bugs": {
+		"url": "https://github.com/shapelayer/gfm-online-judge-description-tool/issues",
+		"email": "shapelayer.dev@gmail.com"
+	},
+	"homepage": "https://gfm-online-judge-description-tool.page.dev",
+	"license": "MIT",
+	"author": "Jonghyeon Park <shapelayer.dev@gmail.com> (https://jonghyeon.me)",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
