@@ -47,9 +47,13 @@
 
   const renderContent = () => {
     convertCallback(textareaInput).then((res: string) => {
-      console.log(res)
       convertedResult = res
     })
+
+    // Wait a tick for the DOM to update
+    setTimeout(() => {
+      notifyRequiresRerenderMathjax()
+    }, 0)
   }
   const selectorOnChange = (i: number) => {
     handleSelectConvertingFormat(i)
@@ -59,10 +63,42 @@
     renderContent()
   }
 
+  const notifyRequiresRerenderMathjax = () => {
+    const event = new CustomEvent('rerenderMathjax', {
+      bubbles: true,
+      composed: true
+    })
+
+    document.dispatchEvent(event)
+  }
+
   onMount(() => {
     handleSelectConvertingFormat(selectedConvertingFormat)
   })
 </script>
+
+<svelte:head>
+  <!--{#if contentType === DescriptionType.bojStack}-->
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    }
+    
+    const requestMathJaxRender = () => {
+      MathJax.typeset()
+    }
+
+    document.addEventListener('rerenderMathjax', (event) => requestMathJaxRender())
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--{/if}-->
+</svelte:head>
 
 <div class="absolute top-8 right-8 w-fit">
   <ChangeLanguage />

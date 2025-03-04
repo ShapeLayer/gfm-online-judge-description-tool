@@ -17,6 +17,7 @@ static void S_render_node(cmark_node *node, cmark_event_type ev_type, struct ren
   std::string data_string;
   bool is_tight;
   char heading[3];
+  int heading_level;
 
   if (node == NULL) return;
 
@@ -91,13 +92,35 @@ static void S_render_node(cmark_node *node, cmark_event_type ev_type, struct ren
     }
     break;
   case CMARK_NODE_HEADING:
+    heading_level = cmark_node_get_heading_level(node);
     strcpy(heading, "h_");
-    heading[1] = (char)((int)'0' + cmark_node_get_heading_level(node));
+    heading[1] = (char)((int)'0' + heading_level);
     state->content.append("<");
     if (!entering) {
       state->content.append("/");
     }
     state->content.append(heading);
+    if (entering) {
+      state->content.append(" style=\"");
+      switch (heading_level) {
+      case 1:
+        state->content.append(BOJ_STACK_DOM_STYLE_H1);
+        break;
+      case 2:
+        state->content.append(BOJ_STACK_DOM_STYLE_H2);
+        break;
+      case 3:
+        state->content.append(BOJ_STACK_DOM_STYLE_H3);
+        break;
+      case 4:
+        state->content.append(BOJ_STACK_DOM_STYLE_H4);
+        break;
+      case 5:
+        state->content.append(BOJ_STACK_DOM_STYLE_H5);
+        break;
+      }
+      state->content.append("\"");
+    }
     state->content.append(">\n");
     break;
   case CMARK_NODE_THEMATIC_BREAK:
