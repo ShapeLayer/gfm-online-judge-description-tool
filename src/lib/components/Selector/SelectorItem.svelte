@@ -2,6 +2,7 @@
   import { type SelectorItemProps } from './selector'
   export let props: SelectorItemProps
   export let isSelected: boolean = false
+  export let indicateNowSelected: boolean = true
   const mouseHoverClass = 'bg-slate-600 text-white outline-none'
   const mouseLeaveClass = 'text-gray-900'
   const mouseHoverCheckmarkClass = 'text-white'
@@ -21,7 +22,8 @@
 
 <li
   class={[
-    "relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900",
+    "relative cursor-default select-none py-2 pl-3 text-gray-900",
+    indicateNowSelected ? "pr-9" : "pr-3",
     highlightClass
   ]}
   role="option"
@@ -30,14 +32,17 @@
   on:mouseleave={onMouseLeave}
 >
   <div class="flex items-center">
+    {#if props.image && props.image !== ''}
     <img src="{ props.image }" alt="" class="size-5 shrink-0 rounded-full">
+    {/if}
     <span class={[
-      "ml-3 block truncate font-normal",
+      "block truncate font-normal",
+      indicateNowSelected ? "ml-3" : "",
       isSelected ? 'font-semibold' : 'font-normal',
     ]}>{ props.name }</span>
   </div>
 
-  {#if isSelected}
+  {#if isSelected && indicateNowSelected}
   <span class={[
       "absolute inset-y-0 right-0 flex items-center pr-4",
       highlightCheckmarkClass

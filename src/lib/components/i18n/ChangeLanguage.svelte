@@ -2,19 +2,24 @@
   import { switchLanguage } from '$lib/commons/paraglide'
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
   import { type LanguageButtonProvider } from './changeLanguageSupport'
+  import Selector from '$lib/components/Selector/Selector.svelte'
   const languages: LanguageButtonProvider[] = [
     {id: 'en', display: '🇺🇸'},
     {id: 'ko-kr', display: '🇰🇷'}
   ]
-  let now = 1
-  let next = 0
-  const onClick = () => {
-    switchLanguage(languages[next].id as AvailableLanguageTag)
-    now = next
-    next = (next + 1) % languages.length
+  let now = 0
+
+  const onSelect = (i: number) => {
+    if (languages[i].id === '_') return
+    switchLanguage(languages[i].id as AvailableLanguageTag)
+    // now = i
   }
 </script>
 
-<button type="button" on:click={onClick}>
-  <span>{languages[now].display} → {languages[next].display}</span>
-</button>
+<Selector
+  items={languages.map(({ id, display }) => ({ id: id, name: display }))}
+  header={{id: '_', name: '🌐'}}
+  selected={now}
+  onChange={onSelect}
+  indicateNowSelected={false}
+/>

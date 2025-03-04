@@ -1,6 +1,6 @@
 export type SelectorItemProps = {
   name: string
-  image: string
+  image: string | undefined
 } & ({
   id: string
 } | {})
