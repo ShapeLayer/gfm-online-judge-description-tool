@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Copy16 } from 'svelte-octicons'
   import { DescriptionType } from '$lib/commons/gfmdescBridge.d'
+  import '$lib/commons/default_styles.scss'
   let {
     content = $bindable(''),
     contentType = $bindable(DescriptionType.none)
@@ -62,92 +63,14 @@
   </div>
   {:else}
   <div
-    id="html-output"
     class={[
       commonStyleClasses,
       "flex-1,0,0 flex-col w-full h-full overflow-y-auto",
       mouseEntered ? 'blur-sm' : '',
+      'html-default-style',
     ]}
   >
     <div>{@html content}</div>
   </div>
   {/if}
 </div>
-
-<style lang="scss">
-:global {
-  h1 {
-    display: block;
-    font-weight: bold;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-size: 2em;
-  }
-  h2 {
-    display: block;
-    font-weight: bold;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-size: 1.5em;
-  }
-  h3 {
-    display: block;
-    font-weight: bold;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-size: 1.17em;
-  }
-  h4 {
-    font-size: 1em;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-  }
-  h5 {
-    font-size: 0.83em;
-    margin-block-start: 1.67em;
-    margin-block-end: 1.67em;
-  }
-  p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-  }
-  ol {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 40px;
-    list-style-type: decimal;
-  }
-  ul {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 40px;
-    list-style-type: disc;
-  }
-  li {
-    display: list-item;
-    text-align: match-parent;
-  }
-  dt {
-    display: block;
-  }
-  dd {
-    display: block;
-    margin-inline-start: 40px;
-  }
-}
-</style>

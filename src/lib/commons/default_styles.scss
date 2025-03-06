@@ -1,0 +1,66 @@
+.html-default-style {
+  h1, h2, h3 {
+    display: block;
+    font-weight: bold;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+  h1 {
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    font-size: 2em;
+  }
+  h2 {
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    font-size: 1.5em;
+  }
+  h3 {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    font-size: 1.17em;
+  }
+  h4 {
+    font-size: 1em;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+  }
+  h5 {
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+  }
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+  ol, ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+  ol {
+    padding-inline-start: 40px;
+    list-style-type: decimal;
+  }
+  ul {
+    padding-inline-start: 40px;
+    list-style-type: disc;
+  }
+  li {
+    display: list-item;
+    text-align: match-parent;
+  }
+  dt {
+    display: block;
+  }
+  dd {
+    display: block;
+    margin-inline-start: 40px;
+  }
+}
