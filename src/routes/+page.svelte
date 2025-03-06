@@ -128,7 +128,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-none grid-rows-2 sm:grid-cols-2 sm:grid-rows-none h-full gap-4 mb-2">
+<div class="grid grid-cols-none grid-rows-2 sm:grid-cols-2 sm:grid-rows-none h-full gap-4 mb-2 overflow-auto">
   <div class="flex">
     <textarea
       class="flex flex-1,0,0 p-2.5 w-full h-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-none overflow-y-scroll"

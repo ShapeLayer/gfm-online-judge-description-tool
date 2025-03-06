@@ -10,7 +10,7 @@
   } = $props()
   let mouseEntered: boolean = $state(false)
 
-  const commonStyleClasses = 'flex p-2.5 w-full h-auto text-sm text-gray-900 rounded-lg border border-gray-300 cursor-pointer'
+  const commonStyleClasses = 'flex p-2.5 w-full h-full text-sm text-gray-900 rounded-lg border border-gray-300 cursor-pointer'
 
   const onMouseEnter = () => { mouseEntered = true }
   const onMouseLeave = () => { mouseEntered = false }
