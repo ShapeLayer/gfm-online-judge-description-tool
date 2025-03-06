@@ -14,7 +14,7 @@
     onChange: (i: number) => void
     indicateNowSelected: boolean | undefined
   } = $props()
-  let displayContentNowSelected: SelectorItemProps = header ?? items[selected]
+  let displayContentNowSelected: SelectorItemProps = $state(header ?? items[selected])
   let expanded: boolean = $state(false)
 
   const onClick = () => {
@@ -24,7 +24,7 @@
     selected = i
     expanded = false
     onChange(i)
-    if (indicateNowSelected) {
+    if (header == undefined) {
       displayContentNowSelected = items[i]
     }
   }
