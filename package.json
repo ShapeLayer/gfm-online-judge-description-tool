@@ -16,7 +16,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run compile:lib && npm run build",
+		"build": "npm run compile:lib && npm run build:web",
 		"build:web": "vite build",
 		"compile:lib": "emcmake cmake . && make",
 		"preview": "vite preview",
