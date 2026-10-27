@@ -1,12 +1,14 @@
 <script lang="ts">
-	import { i18n } from '$lib/i18n';
-	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
+	import { page } from '$app/state';
+	import { getLanguageTag } from '#lib/i18n';
 	import '../app.css';
 	let { children } = $props();
+
+	$effect(() => {
+		document.documentElement.lang = getLanguageTag(page.params.lang);
+	});
 </script>
 
-<div class="flex relative h-screen max-h-screen flex-col p-8">
-	<ParaglideJS {i18n}>
-		{@render children()}
-	</ParaglideJS>
+<div class="relative flex h-screen max-h-screen flex-col p-8">
+	{@render children()}
 </div>
